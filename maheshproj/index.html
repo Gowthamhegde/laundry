@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry management system</title>
+    <script src="slide.js"></script>
+    <link rel="stylesheet" href="slide.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="icon">
+            <img src="./images/logo.png" alt="laundry image">
+            <h1>Laundry techs</h1>
+        </div>
+        <div class="home">
+            <a href="#about_us">about us</a>
+            <a href="#contact_us">contact us</a>
+            <a href="#services">services</a>
+            <a href="sign_in.html" style="box-shadow: 2px 2px 2px black;">Register</a>
+        </div>
+    </div>
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="./image/laundry1.jpeg" alt="Image 1">
+        </div>
+        <div class="slide fade">
+            <img src="./image/laundry2.jpeg" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="./image/laundry3.jpeg" alt="Image 3">
+        </div>
+        <div class="slide fade">
+            <img src="./image/laundry4.jpeg" alt="Image 3">
+        </div>
+    
+        <!-- Navigation Buttons -->
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div> 
+
+    <!-- New Service Section -->
+    <div class="service-section" id="services">
+        <h1>Our Services</h1>
+        <div class="service" onclick="animateService(this)">
+            <h2>Service 1</h2>
+            <p>Description of service 1.</p>
+        </div>
+        <div class="service" onclick="animateService(this)">
+            <h2>Service 2</h2>
+            <p>Description of service 2.</p>
+        </div>
+        <div class="service" onclick="animateService(this)">
+            <h2>Service 3</h2>
+            <p>Description of service 3.</p>
+        </div>
+    </div>
+
+    <div class="hero-section">
+        <div class="hero">
+            <h1>Welcome to our laundry techs</h1>
+            <p>We are here to help you manage your laundry with ease and efficiency.</p>
+            <a href="login.php" class="btn">Get Started</a>
+        </div>
+        <div class="hero-img">
+            <img src="./images/laundryimage.png" alt="laundry hero image">
+        </div>
+    </div>
+    <div class="about-us" id="about_us">
+        <h1>About us</h1>
+        <div class="about">
+            <p>We are a laundry management system that helps you keep track of your laundry tasks and schedules.</p>
+            <p>Our system allows you to create and manage laundry tasks, set reminders, and track your laundry progress.</p>
+            <p>We have created a system that simplifies the process. Our goal is to help you save time and effort so you can focus on what
+                really matters.</p>
+            <p>Whether you are a busy professional, a student, or a parent, our laundry management system is designed to
+                meet your needs.</p>
+        </div>
+        <div class="process">
+            <h1>Our process</h1>
+            <div class="process-steps">
+                <div class="step">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p>Sign up for an account</p>
+                </div>
+                <div class="step">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p>Create your laundry tasks</p>
+                </div>
+                <div class="step">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <p>Set reminders and track progress</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-us">
+    </div>
+</body>
+</html>

@@ -32,9 +32,12 @@
         .features {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             gap: 40px;
-            margin-top: 30px;
+            margin: 30px auto 0;
+            overflow-x: auto;
+            padding: 20px 0;
+            width: 100%;
         }
 
         .feature {
@@ -42,25 +45,33 @@
             text-align: center;
             border: #0056b3 solid 2px;
             border-radius: 10px;
-
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
         }
 
         .feature img {
-            width: 100px;
-            height: 80px;
-            object-fit: contain;/* Ensures the image fits within the container without cropping */
-            object-position: center;
-            margin-bottom:2px;
-            background-color: #0056b3;
-            border-radius:50px;
-            margin-top:10px;
-
-            
+            width: 53px;
+            height: 56px;
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
         }
-        
+        .feature .image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+            width: 80px;
+            background-color: #0056b3;
+            border-radius: 50%;
+            padding: 5px;
+        }
 
         .feature h3 {
-            color: #1366c0;
+            color: #0056b3;
             font-size: 20px;
             margin-bottom: 10px;
         }
@@ -83,23 +94,23 @@
 
         <div class="features">
             <div class="feature">
-                <img src="./image/AtBengaluru.png" alt="Location">
+               <div class="image"> <img src="./image/AtBengaluru.png" alt="Location"></div>
                 <h3>At Hubli-dharawad</h3>
                 <p>A professional laundry service near you that delivers high standards of quality, care, and service.
                 </p>
             </div>
             <div class="feature">
-                <img src="./image/Atyourdoor.png" alt="At Your Door">
+                <div class="image"><img src="./image/Atyourdoor.png" alt="At Your Door"></div>
                 <h3>At your door</h3>
                 <p>Pickup and drop right at your doorstep—no waiting or chasing required!</p>
             </div>
             <div class="feature">
-                <img src="./image/Atyourservice.png" alt="Service">
+               <div class="image"><img src="./image/Atyourservice.png" alt="Service"></div>
                 <h3>At your service</h3>
                 <p>24-hour laundry service means exactly that—fast, reliable, and clockwork efficient.</p>
             </div>
             <div class="feature">
-                <img src="./image/Atirrisistableprices.png" alt="Affordable Prices">
+                <div class="image"><img src="./image/Atirrisistableprices.png" alt="Affordable Prices"></div>
                 <h3>At irresistible prices</h3>
                 <p>Super affordable rates with reprocessing or refund options—because we care!</p>
             </div>

@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9fafb;
+    padding: 20px;
+  }
+  
+  .tabs button {
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .tabs button.active {
+    border-bottom: 3px solid #007bff;
+    color: #007bff;
+  }
+  
+  .card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  

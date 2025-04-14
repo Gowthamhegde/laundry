@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry Services - Professional Laundry Management</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Services Page Specific Styles */
+        .services-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/backgrounds/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 2rem;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .services-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .services-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-categories {
+            padding: 5rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-image img {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 1rem;
+            color: var(--white);
+        }
+
+        .category-content {
+            padding: 2rem;
+        }
+
+        .category-content h3 {
+            color: var(--dark-yellow);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .category-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .service-features {
+            padding: 5rem 2rem;
+            background: url('images/backgrounds/features-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .service-features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .service-features > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item i {
+            font-size: 2.5rem;
+            color: var(--dark-yellow);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-section {
+            padding: 5rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--dark-yellow);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card h3 {
+            color: var(--dark-yellow);
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .pricing-features li i {
+            color: var(--dark-yellow);
+            margin-right: 0.5rem;
+        }
+
+        .btn-book {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--dark-yellow);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-book:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .how-it-works {
+            padding: 5rem 2rem;
+            background: url('images/backgrounds/process-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .how-it-works::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .how-it-works > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--dark-yellow);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .step-item h3 {
+            color: var(--dark-yellow);
+            margin-bottom: 1rem;
+        }
+
+        .testimonials {
+            padding: 5rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 4rem;
+            color: var(--dark-yellow);
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--dark-yellow);
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--dark-yellow);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .services-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .category-grid,
+            .features-grid,
+            .pricing-grid,
+            .steps-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Laundry Logo" class="animate-float">
+                <h1>LaundryPro</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="register.html" class="btn-register">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+        <h1 class="animate-fadeIn">Our Professional Laundry Services</h1>
+        <p class="animate-fadeIn stagger-1">Experience the convenience of professional laundry services with our state-of-the-art facilities and expert care.</p>
+    </section>
+
+    <!-- Service Categories -->
+    <section class="service-categories">
+        <div class="category-grid">
+            <div class="category-card hover-lift animate-slideInLeft stagger-1">
+                <div class="category-image">
+                    <img src="images/services/washing.jpg" alt="Washing Service">
+                    <div class="category-overlay">
+                        <h3>Washing Service</h3>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <p>Professional washing with premium detergents and fabric care solutions.</p>
+                    <a href="#washing" class="btn-book hover-glow">Learn More</a>
+                </div>
+            </div>
+            <div class="category-card hover-lift animate-slideInLeft stagger-2">
+                <div class="category-image">
+                    <img src="images/services/dry-cleaning.jpg" alt="Dry Cleaning">
+                    <div class="category-overlay">
+                        <h3>Dry Cleaning</h3>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <p>Expert dry cleaning for delicate fabrics and special garments.</p>
+                    <a href="#dry-cleaning" class="btn-book hover-glow">Learn More</a>
+                </div>
+            </div>
+            <div class="category-card hover-lift animate-slideInLeft stagger-3">
+                <div class="category-image">
+                    <img src="images/services/ironing.jpg" alt="Ironing Service">
+                    <div class="category-overlay">
+                        <h3>Ironing Service</h3>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <p>Professional ironing and pressing for crisp, wrinkle-free clothes.</p>
+                    <a href="#ironing" class="btn-book hover-glow">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Features -->
+    <section class="service-features">
+        <h2 class="section-title animate-fadeIn">Why Choose Our Services</h2>
+        <div class="features-grid">
+            <div class="feature-item hover-scale animate-slideInRight stagger-1">
+                <i class="fas fa-clock animate-pulse"></i>
+                <h3>Fast Turnaround</h3>
+                <p>Quick service with same-day or next-day delivery options</p>
+            </div>
+            <div class="feature-item hover-scale animate-slideInRight stagger-2">
+                <i class="fas fa-shield-alt animate-pulse"></i>
+                <h3>Quality Assurance</h3>
+                <p>100% satisfaction guarantee on all our services</p>
+            </div>
+            <div class="feature-item hover-scale animate-slideInRight stagger-3">
+                <i class="fas fa-truck animate-pulse"></i>
+                <h3>Free Pickup & Delivery</h3>
+                <p>Convenient door-to-door service</p>
+            </div>
+            <div class="feature-item hover-scale animate-slideInRight stagger-4">
+                <i class="fas fa-leaf animate-pulse"></i>
+                <h3>Eco-Friendly</h3>
+                <p>Environmentally conscious cleaning methods</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <h2 class="section-title animate-fadeIn">Our Pricing Plans</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card hover-lift animate-slideInLeft stagger-1">
+                <h3>Basic Plan</h3>
+                <div class="price">$29<span>/month</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 10kg Washing</li>
+                    <li><i class="fas fa-check"></i> Free Pickup</li>
+                    <li><i class="fas fa-check"></i> 48hr Delivery</li>
+                    <li><i class="fas fa-check"></i> Basic Ironing</li>
+                </ul>
+                <a href="#" class="btn-book hover-glow">Book Now</a>
+            </div>
+            <div class="pricing-card hover-lift animate-slideInLeft stagger-2">
+                <h3>Premium Plan</h3>
+                <div class="price">$49<span>/month</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 20kg Washing</li>
+                    <li><i class="fas fa-check"></i> Free Pickup</li>
+                    <li><i class="fas fa-check"></i> 24hr Delivery</li>
+                    <li><i class="fas fa-check"></i> Premium Ironing</li>
+                    <li><i class="fas fa-check"></i> Dry Cleaning (5 items)</li>
+                </ul>
+                <a href="#" class="btn-book hover-glow">Book Now</a>
+            </div>
+            <div class="pricing-card hover-lift animate-slideInLeft stagger-3">
+                <h3>Ultimate Plan</h3>
+                <div class="price">$79<span>/month</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Unlimited Washing</li>
+                    <li><i class="fas fa-check"></i> Free Pickup</li>
+                    <li><i class="fas fa-check"></i> Same Day Delivery</li>
+                    <li><i class="fas fa-check"></i> Premium Ironing</li>
+                    <li><i class="fas fa-check"></i> Unlimited Dry Cleaning</li>
+                    <li><i class="fas fa-check"></i> Priority Service</li>
+                </ul>
+                <a href="#" class="btn-book hover-glow">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2 class="section-title animate-fadeIn">How It Works</h2>
+        <div class="steps-grid">
+            <div class="step-item hover-scale animate-slideInRight stagger-1">
+                <div class="step-number">1</div>
+                <h3>Schedule Pickup</h3>
+                <p>Book a pickup time that works for you through our app or website</p>
+            </div>
+            <div class="step-item hover-scale animate-slideInRight stagger-2">
+                <div class="step-number">2</div>
+                <h3>We Collect</h3>
+                <p>Our professional team picks up your laundry at your doorstep</p>
+            </div>
+            <div class="step-item hover-scale animate-slideInRight stagger-3">
+                <div class="step-number">3</div>
+                <h3>We Clean</h3>
+                <p>Your clothes are professionally cleaned and cared for</p>
+            </div>
+            <div class="step-item hover-scale animate-slideInRight stagger-4">
+                <div class="step-number">4</div>
+                <h3>We Deliver</h3>
+                <p>Fresh, clean clothes delivered back to you</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2 class="section-title animate-fadeIn">What Our Customers Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card hover-lift animate-slideInLeft stagger-1">
+                <div class="testimonial-content">
+                    "The service is amazing! My clothes always come back perfectly cleaned and pressed. The convenience of pickup and delivery is a game-changer."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="images/customers/customer1.jpg" alt="Customer">
+                    </div>
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>Premium Plan User</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card hover-lift animate-slideInLeft stagger-2">
+                <div class="testimonial-content">
+                    "I've been using their service for months now, and I'm consistently impressed with the quality and reliability. Highly recommended!"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="images/customers/customer2.jpg" alt="Customer">
+                    </div>
+                    <div class="author-info">
+                        <h4>Michael Chen</h4>
+                        <p>Ultimate Plan User</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card hover-lift animate-slideInLeft stagger-3">
+                <div class="testimonial-content">
+                    "The best laundry service I've ever used. Their attention to detail and customer service is outstanding."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="images/customers/customer3.jpg" alt="Customer">
+                    </div>
+                    <div class="author-info">
+                        <h4>Emily Rodriguez</h4>
+                        <p>Basic Plan User</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="#washing">Washing</a>
+                <a href="#dry-cleaning">Dry Cleaning</a>
+                <a href="#ironing">Ironing</a>
+                <a href="#pickup">Pickup & Delivery</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <p><i class="fas fa-envelope"></i> info@laundrypro.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Laundry St, City</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" class="hover-scale"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover-scale"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover-scale"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover-scale"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 LaundryPro. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

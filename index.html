@@ -4,89 +4,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laundry management system</title>
-    <script src="slide.js"></script>
-    <link rel="stylesheet" href="slide.css">
+    <title>Laundry Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="slide.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="icon">
-            <img src="./images/logo.png" alt="laundry image">
-            <h1>Laundry techs</h1>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./images/logo.png" alt="Laundry Techs Logo">
+                <h1>Laundry Techs</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="register.html" class="btn-register">Register</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
-        <div class="home">
-            <a href="about.html">about us</a>
-            <a href="#contact_us">contact us</a>
-            <a href="#services">services</a>
-            <a href="login.html" style="box-shadow: 2px 2px 2px black;">Login</a>
-            <a href="register.html" style="box-shadow: 2px 2px 2px black;">Register</a>
-        </div>
-    </div>
+    </nav>
 
-    <div class="hero-section">
-        <div class="hero">
-            <h1>Welcome to our laundry techs</h1>
-            <p>We are here to help you manage your laundry with ease and efficiency.</p>
-            <a href="login.php" class="btn">Get Started</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Professional Laundry Services</h1>
+            <p>Experience the convenience of modern laundry management with our state-of-the-art services</p>
+            <div class="hero-buttons">
+                <a href="register.html" class="btn-primary">Get Started</a>
+                <a href="#services" class="btn-secondary">Our Services</a>
+            </div>
         </div>
-        <div class="hero-img">
-            <img src="./images/laundryimage.png" alt="laundry hero image">
+        <div class="hero-image">
+            <img src="./images/laundryimage.png" alt="Laundry Services">
         </div>
-    </div>
+    </section>
 
-    <div class="slideshow-container">
-        <div class="slide fade">
-            <img src="./image/laundry1.jpeg" alt="Image 1">
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-tshirt"></i>
+                <h3>Wash & Fold</h3>
+                <p>Professional washing and folding service with premium detergents</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-iron"></i>
+                <h3>Dry Cleaning</h3>
+                <p>Expert dry cleaning for your delicate garments</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-truck"></i>
+                <h3>Express Service</h3>
+                <p>Quick 24-hour service for your urgent needs</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-home"></i>
+                <h3>Home Pickup</h3>
+                <p>Convenient pickup and delivery service</p>
+            </div>
         </div>
-        <div class="slide fade">
-            <img src="./image/laundry2.jpeg" alt="Image 2">
-        </div>
-        <div class="slide fade">
-            <img src="./image/laundry3.jpeg" alt="Image 3">
-        </div>
-        <div class="slide fade">
-            <img src="./image/laundry4.jpeg" alt="Image 4">
-        </div>
-    
-        <!-- Navigation Buttons -->
-        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-        <a class="next" onclick="changeSlide(1)">&#10095;</a>
-    </div> 
+    </section>
 
-    <div class="about-us" id="about_us">
-        <h1>About us</h1>
-        <div class="about">
-            <p>We are a laundry management system that helps you keep track of your laundry tasks and schedules.</p>
-            <p>Our system allows you to create and manage laundry tasks, set reminders, and track your laundry progress.</p>
-            <p>We have created a system that simplifies the process. Our goal is to help you save time and effort so you can focus on what
-                really matters.</p>
-            <p>Whether you are a busy professional, a student, or a parent, our laundry management system is designed to
-                meet your needs.</p>
-        </div>
-        <div class="process">
-            <h1>Our process</h1>
-            <div class="process-steps">
-                <div class="step">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <p>Sign up for an account</p>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2 class="section-title">About Us</h2>
+            <p>We are a modern laundry management system dedicated to making your life easier. Our services combine technology with professional care to deliver the best results.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-clock"></i>
+                    <h4>Fast Service</h4>
+                    <p>Quick turnaround time</p>
                 </div>
-                <div class="step">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <p>Create your laundry tasks</p>
+                <div class="feature">
+                    <i class="fas fa-star"></i>
+                    <h4>Quality Care</h4>
+                    <p>Premium detergents</p>
                 </div>
-                <div class="step">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <p>Set reminders and track progress</p>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Safe & Secure</h4>
+                    <p>Secure handling</p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="contact-us">
-    </div>
+        <div class="about-image">
+            <img src="./images/about-image.jpg" alt="About Us">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>123 Laundry Street, City</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+1 234 567 890</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@laundrytechs.com</p>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Laundry Techs</h3>
+                <p>Making laundry management simple and efficient.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Laundry Techs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@ function showSlides() {
     slideIndex++;
     if (slideIndex > slides.length) { slideIndex = 1 }
     slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 10000); // Change image every 10 seconds
+  //  setTimeout(showSlides, 10000); 
 }
 
 function changeSlide(n) {
@@ -18,7 +18,7 @@ function changeSlide(n) {
 
 function animateService(serviceElement) {
     serviceElement.classList.toggle('active');
-    // Additional animation logic can be added here if needed
 }
+setInterval(showSlides, 10000); // Change slide every 10 seconds
 
 document.addEventListener("DOMContentLoaded", showSlides);

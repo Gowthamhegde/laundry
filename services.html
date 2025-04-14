@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laundry Services - Professional Laundry Management</title>
+    <title>LaundryPro - Our Services</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="module" src="robot-animation.js"></script>
     <style>
         /* Services Page Specific Styles */
         .services-hero {
@@ -394,6 +395,23 @@
             height: 400px;
             margin: 2rem 0;
         }
+
+        /* 3D Robot Container */
+        .robot-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            z-index: 100;
+            pointer-events: none;
+            background: transparent;
+        }
+
+        /* Ensure content doesn't overlap with robot */
+        .services-grid, .process {
+            margin-bottom: 220px;
+        }
     </style>
 </head>
 <body>
@@ -401,219 +419,129 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="images/logo.png" alt="Laundry Logo" class="animate-float">
+                <img src="images/logo.png" alt="LaundryPro Logo">
                 <h1>LaundryPro</h1>
             </div>
-            <div class="nav-links">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
                 <a href="services.html" class="active">Services</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
-                <a href="login.html" class="btn-login">Login</a>
-                <a href="register.html" class="btn-register">Register</a>
+                <div class="nav-buttons">
+                    <a href="login.html" class="btn-login">Login</a>
+                    <a href="register.html" class="btn-register">Register</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Services Hero Section -->
-    <section class="services-hero">
-        <h1 class="animate-fadeIn">Our Professional Laundry Services</h1>
-        <p class="animate-fadeIn stagger-1">Experience the convenience of professional laundry services with our state-of-the-art facilities and expert care.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title animate-fadeIn">Our Premium Services</h1>
+            <p class="hero-subtitle animate-fadeIn">Experience the future of laundry with our advanced services</p>
+        </div>
     </section>
 
-    <!-- 3D Service Icons -->
-    <div id="service-icons-3d" class="three-d-container service-icons-3d"></div>
+    <!-- Services Grid -->
+    <section class="services-grid">
+        <div class="service-card hover-lift">
+            <div class="service-image">
+                <img src="images/services/washing.jpg" alt="Washing Service">
+            </div>
+            <div class="service-content">
+                <h3>Premium Washing</h3>
+                <p>Our state-of-the-art washing machines use advanced technology to ensure your clothes are cleaned to perfection. We use eco-friendly detergents and follow strict quality standards.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Temperature-controlled washing</li>
+                    <li><i class="fas fa-check"></i> Stain removal expertise</li>
+                    <li><i class="fas fa-check"></i> Fabric care specialists</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+        </div>
 
-    <!-- Service Categories -->
-    <section class="service-categories">
-        <div class="category-grid">
-            <div class="category-card hover-lift animate-slideInLeft stagger-1">
-                <div class="category-image">
-                    <img src="images/services/washing.jpg" alt="Washing Service">
-                    <div class="category-overlay">
-                        <h3>Washing Service</h3>
-                    </div>
-                </div>
-                <div class="category-content">
-                    <p>Professional washing with premium detergents and fabric care solutions.</p>
-                    <a href="#washing" class="btn-book hover-glow">Learn More</a>
-                </div>
+        <div class="service-card hover-lift">
+            <div class="service-image">
+                <img src="images/services/dry-cleaning.jpg" alt="Dry Cleaning Service">
             </div>
-            <div class="category-card hover-lift animate-slideInLeft stagger-2">
-                <div class="category-image">
-                    <img src="images/services/dry-cleaning.jpg" alt="Dry Cleaning">
-                    <div class="category-overlay">
-                        <h3>Dry Cleaning</h3>
-                    </div>
-                </div>
-                <div class="category-content">
-                    <p>Expert dry cleaning for delicate fabrics and special garments.</p>
-                    <a href="#dry-cleaning" class="btn-book hover-glow">Learn More</a>
-                </div>
+            <div class="service-content">
+                <h3>Professional Dry Cleaning</h3>
+                <p>Specialized care for delicate fabrics and formal wear. Our dry cleaning process uses the latest technology to maintain fabric integrity while removing tough stains.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Gentle fabric handling</li>
+                    <li><i class="fas fa-check"></i> Odor removal</li>
+                    <li><i class="fas fa-check"></i> Professional pressing</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Learn More</a>
             </div>
-            <div class="category-card hover-lift animate-slideInLeft stagger-3">
-                <div class="category-image">
-                    <img src="images/services/ironing.jpg" alt="Ironing Service">
-                    <div class="category-overlay">
-                        <h3>Ironing Service</h3>
-                    </div>
-                </div>
-                <div class="category-content">
-                    <p>Professional ironing and pressing for crisp, wrinkle-free clothes.</p>
-                    <a href="#ironing" class="btn-book hover-glow">Learn More</a>
-                </div>
+        </div>
+
+        <div class="service-card hover-lift">
+            <div class="service-image">
+                <img src="images/services/ironing.jpg" alt="Ironing Service">
+            </div>
+            <div class="service-content">
+                <h3>Expert Ironing</h3>
+                <p>Professional ironing service that gives your clothes a crisp, fresh look. Our team uses specialized equipment to handle all types of fabrics with care.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Steam ironing</li>
+                    <li><i class="fas fa-check"></i> Crease-free finish</li>
+                    <li><i class="fas fa-check"></i> Fabric-specific care</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+        </div>
+
+        <div class="service-card hover-lift">
+            <div class="service-image">
+                <img src="images/services/pickup.jpg" alt="Pickup & Delivery">
+            </div>
+            <div class="service-content">
+                <h3>Smart Pickup & Delivery</h3>
+                <p>Convenient pickup and delivery service at your doorstep. Track your order in real-time and receive notifications at every step.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Real-time tracking</li>
+                    <li><i class="fas fa-check"></i> Flexible scheduling</li>
+                    <li><i class="fas fa-check"></i> Contactless delivery</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Learn More</a>
             </div>
         </div>
     </section>
 
-    <!-- Service Features -->
-    <section class="service-features">
-        <h2 class="section-title animate-fadeIn">Why Choose Our Services</h2>
-        <div class="features-grid">
-            <div class="feature-item hover-scale animate-slideInRight stagger-1">
-                <i class="fas fa-clock animate-pulse"></i>
-                <h3>Fast Turnaround</h3>
-                <p>Quick service with same-day or next-day delivery options</p>
-            </div>
-            <div class="feature-item hover-scale animate-slideInRight stagger-2">
-                <i class="fas fa-shield-alt animate-pulse"></i>
-                <h3>Quality Assurance</h3>
-                <p>100% satisfaction guarantee on all our services</p>
-            </div>
-            <div class="feature-item hover-scale animate-slideInRight stagger-3">
-                <i class="fas fa-truck animate-pulse"></i>
-                <h3>Free Pickup & Delivery</h3>
-                <p>Convenient door-to-door service</p>
-            </div>
-            <div class="feature-item hover-scale animate-slideInRight stagger-4">
-                <i class="fas fa-leaf animate-pulse"></i>
-                <h3>Eco-Friendly</h3>
-                <p>Environmentally conscious cleaning methods</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3D Pricing Cards -->
-    <div id="pricing-cards-3d" class="three-d-container pricing-cards-3d"></div>
-
-    <!-- Pricing Section -->
-    <section class="pricing-section">
-        <h2 class="section-title animate-fadeIn">Our Pricing Plans</h2>
-        <div class="pricing-grid">
-            <div class="pricing-card hover-lift animate-slideInLeft stagger-1">
-                <h3>Basic Plan</h3>
-                <div class="price">$29<span>/month</span></div>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> 10kg Washing</li>
-                    <li><i class="fas fa-check"></i> Free Pickup</li>
-                    <li><i class="fas fa-check"></i> 48hr Delivery</li>
-                    <li><i class="fas fa-check"></i> Basic Ironing</li>
-                </ul>
-                <a href="#" class="btn-book hover-glow">Book Now</a>
-            </div>
-            <div class="pricing-card hover-lift animate-slideInLeft stagger-2">
-                <h3>Premium Plan</h3>
-                <div class="price">$49<span>/month</span></div>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> 20kg Washing</li>
-                    <li><i class="fas fa-check"></i> Free Pickup</li>
-                    <li><i class="fas fa-check"></i> 24hr Delivery</li>
-                    <li><i class="fas fa-check"></i> Premium Ironing</li>
-                    <li><i class="fas fa-check"></i> Dry Cleaning (5 items)</li>
-                </ul>
-                <a href="#" class="btn-book hover-glow">Book Now</a>
-            </div>
-            <div class="pricing-card hover-lift animate-slideInLeft stagger-3">
-                <h3>Ultimate Plan</h3>
-                <div class="price">$79<span>/month</span></div>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> Unlimited Washing</li>
-                    <li><i class="fas fa-check"></i> Free Pickup</li>
-                    <li><i class="fas fa-check"></i> Same Day Delivery</li>
-                    <li><i class="fas fa-check"></i> Premium Ironing</li>
-                    <li><i class="fas fa-check"></i> Unlimited Dry Cleaning</li>
-                    <li><i class="fas fa-check"></i> Priority Service</li>
-                </ul>
-                <a href="#" class="btn-book hover-glow">Book Now</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="how-it-works">
-        <h2 class="section-title animate-fadeIn">How It Works</h2>
-        <div class="steps-grid">
-            <div class="step-item hover-scale animate-slideInRight stagger-1">
+    <!-- Process Section -->
+    <section class="process">
+        <h2 class="section-title">How It Works</h2>
+        <div class="process-steps">
+            <div class="step hover-scale">
                 <div class="step-number">1</div>
-                <h3>Schedule Pickup</h3>
-                <p>Book a pickup time that works for you through our app or website</p>
+                <h3>Schedule Service</h3>
+                <p>Book your service through our app or website</p>
             </div>
-            <div class="step-item hover-scale animate-slideInRight stagger-2">
+            <div class="step hover-scale">
                 <div class="step-number">2</div>
-                <h3>We Collect</h3>
-                <p>Our professional team picks up your laundry at your doorstep</p>
+                <h3>Pickup</h3>
+                <p>We collect your clothes at your preferred time</p>
             </div>
-            <div class="step-item hover-scale animate-slideInRight stagger-3">
+            <div class="step hover-scale">
                 <div class="step-number">3</div>
-                <h3>We Clean</h3>
-                <p>Your clothes are professionally cleaned and cared for</p>
+                <h3>Processing</h3>
+                <p>Professional cleaning and care</p>
             </div>
-            <div class="step-item hover-scale animate-slideInRight stagger-4">
+            <div class="step hover-scale">
                 <div class="step-number">4</div>
-                <h3>We Deliver</h3>
-                <p>Fresh, clean clothes delivered back to you</p>
+                <h3>Delivery</h3>
+                <p>Fresh clothes delivered to your doorstep</p>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <h2 class="section-title animate-fadeIn">What Our Customers Say</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card hover-lift animate-slideInLeft stagger-1">
-                <div class="testimonial-content">
-                    "The service is amazing! My clothes always come back perfectly cleaned and pressed. The convenience of pickup and delivery is a game-changer."
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-image">
-                        <img src="images/customers/customer1.jpg" alt="Customer">
-                    </div>
-                    <div class="author-info">
-                        <h4>Sarah Johnson</h4>
-                        <p>Premium Plan User</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card hover-lift animate-slideInLeft stagger-2">
-                <div class="testimonial-content">
-                    "I've been using their service for months now, and I'm consistently impressed with the quality and reliability. Highly recommended!"
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-image">
-                        <img src="images/customers/customer2.jpg" alt="Customer">
-                    </div>
-                    <div class="author-info">
-                        <h4>Michael Chen</h4>
-                        <p>Ultimate Plan User</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card hover-lift animate-slideInLeft stagger-3">
-                <div class="testimonial-content">
-                    "The best laundry service I've ever used. Their attention to detail and customer service is outstanding."
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-image">
-                        <img src="images/customers/customer3.jpg" alt="Customer">
-                    </div>
-                    <div class="author-info">
-                        <h4>Emily Rodriguez</h4>
-                        <p>Basic Plan User</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- 3D Robot Container -->
+    <div class="robot-container" id="robot-container"></div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -653,7 +581,25 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script type="module" src="3d-components.js"></script>
+    <!-- Add this script at the end of the body -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+    </script>
 </body>
 </html> 

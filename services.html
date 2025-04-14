@@ -375,6 +375,25 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* 3D Container Styles */
+        .three-d-container {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .service-icons-3d {
+            height: 300px;
+            margin: 2rem 0;
+        }
+
+        .pricing-cards-3d {
+            height: 400px;
+            margin: 2rem 0;
+        }
     </style>
 </head>
 <body>
@@ -401,6 +420,9 @@
         <h1 class="animate-fadeIn">Our Professional Laundry Services</h1>
         <p class="animate-fadeIn stagger-1">Experience the convenience of professional laundry services with our state-of-the-art facilities and expert care.</p>
     </section>
+
+    <!-- 3D Service Icons -->
+    <div id="service-icons-3d" class="three-d-container service-icons-3d"></div>
 
     <!-- Service Categories -->
     <section class="service-categories">
@@ -470,6 +492,9 @@
             </div>
         </div>
     </section>
+
+    <!-- 3D Pricing Cards -->
+    <div id="pricing-cards-3d" class="three-d-container pricing-cards-3d"></div>
 
     <!-- Pricing Section -->
     <section class="pricing-section">
@@ -627,5 +652,8 @@
             <p>&copy; 2024 LaundryPro. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="3d-components.js"></script>
 </body>
 </html> 

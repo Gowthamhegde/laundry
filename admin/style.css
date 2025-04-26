@@ -1,0 +1,106 @@
+/* admin/style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f6f8;
+    color: #333;
+  }
+  
+  h1, h2 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  ul li {
+    display: inline-block;
+    margin: 0 15px;
+  }
+  
+  ul li a {
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  ul li a:hover {
+    background-color: #0056b3;
+  }
+  
+  form {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+  
+  form input, form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+  }
+  
+  form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #218838;
+  }
+  
+  table {
+    width: 80%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+  
+  table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  div {
+    background: white;
+    margin: 20px auto;
+    padding: 15px;
+    width: 80%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+  
